@@ -1,18 +1,24 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Project</title>
+	<title>kScores</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- require angular -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js'>
 	</script>
+	<script src="//oblador.github.io/angular-parallax/angular-parallax.min.js"></script>
+	<script src="//oblador.github.io/angular-scroll/0.6.2/angular-scroll.min.js"></script>
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="./css/styles.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type='text/javascript'>
 
-	var board = angular.module('board', ['ngRoute','ui.bootstrap']);
+	var board = angular.module('board', ['ngRoute','ui.bootstrap','duParallax']);
 
 	board.config(function ($routeProvider, $locationProvider) {
       $routeProvider
@@ -24,13 +30,20 @@
         });
     });
 
+
 	</script>
 	<!-- CONTROLLERS / FACTORIES -->
   <script type="text/javascript" src="./factories/poll_factory.js"></script>
   <script type="text/javascript" src="./controllers/dashboard_controller.js"></script>
+
+	<!-- FONT -->
+	<link href='https://fonts.googleapis.com/css?family=Ek+Mukta:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app='board'>
-  <div ng-view=''>
+  <div ng-controller="DashboardController" class="wrap">
+		<div class="block"><h2><u>Games Today</u></h2></div>
+		<img src="./images/court.jpg" du-parallax y="background" alt="" />
+		<div class="block"><p>test</p></div>
   </div>
 </body>
 </html>
