@@ -30,6 +30,13 @@ body{
   margin:auto;
 }
 
-.game_box{
+.big{
+  font-size:150%;
+  font-weight:bold;
 
+}
+
+.game_box{
+  font-size:120%;
+  text-align:center;
 }
