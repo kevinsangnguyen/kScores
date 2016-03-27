@@ -12,13 +12,17 @@
 	</script>
 	<script src="//oblador.github.io/angular-parallax/angular-parallax.min.js"></script>
 	<script src="//oblador.github.io/angular-scroll/0.6.2/angular-scroll.min.js"></script>
+	<script src="./scroll/fullpage-scroll.js"></script>
+
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="./scroll/fullpage-scroll.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
 	<script type='text/javascript'>
 
-	var board = angular.module('board', ['ngRoute','ui.bootstrap','duParallax']);
+	var board = angular.module('board', ['ngRoute','ui.bootstrap','duParallax','FullpageScroll']);
 
 	board.config(function ($routeProvider, $locationProvider) {
       $routeProvider
@@ -31,19 +35,37 @@
     });
 
 
+
+
 	</script>
 	<!-- CONTROLLERS / FACTORIES -->
-  <script type="text/javascript" src="./factories/poll_factory.js"></script>
+  <script type="text/javascript" src="./factories/stats_factory.js"></script>
   <script type="text/javascript" src="./controllers/dashboard_controller.js"></script>
 
 	<!-- FONT -->
 	<link href='https://fonts.googleapis.com/css?family=Ek+Mukta:400,300,700' rel='stylesheet' type='text/css'>
 </head>
-<body ng-app='board'>
-  <div ng-controller="DashboardController" class="wrap">
-		<div class="block"><h2><u>Games Today</u></h2></div>
-		<img src="./images/court.jpg" du-parallax y="background" alt="" />
-		<div class="block"><p>test</p></div>
+<body ng-app='board' ng-controller="DashboardController">
+  <div fullpage-scroll="top" class="wrap container-fluid">
+		<div class="block row">
+			<div class="col-md-12">
+				<h2><u>Games Today</u></h2>
+				<button ng-click="test()">test</button>
+			</div>
+			<div class="loader">
+				<img ng-if="!games" src="./images/ball.gif">
+			</div>
+			<div class="game_box col-md-12 col-lg-12" ng-repeat="game in games">
+				<h3><img src="./images/logos/{{teams[game[0].rowSet[0][7]].short}}.gif"> {{teams[game[0].rowSet[0][7]].name}} @ <img src="./images/logos{{teams[game[0].rowSet[0][6]].short}}.gif"> {{teams[game[0].rowSet[0][6]].name}} </h3>
+				<p ng-if="game[1].rowSet[1][21]">
+					{{game[1].rowSet[1][21]}} - {{game[1].rowSet[0][21]}}
+				</p>
+				<p ng-if="!game[1].rowSet[1][21]">
+					{{game[0].rowSet[0][4]}}
+				</p>
+			</div>
+		</div>
+
   </div>
 </body>
 </html>

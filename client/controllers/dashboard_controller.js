@@ -1,36 +1,47 @@
-board.controller('DashboardController', function($scope,$location,$routeParams,$http, parallaxHelper) {
+board.controller('DashboardController', function($scope,$location,$routeParams,$http, parallaxHelper,StatFactory) {
 
 $scope.background = parallaxHelper.createAnimator(-0.3);
 
-d = new Date();
-var year = d.getFullYear();
-var day = d.getDate();
-var months = new Array();
-months[0] = "JAN";
-months[1] = "FEB";
-months[2] = "MAR";
-months[3] = "APR";
-months[4] = "MAY";
-months[5] = "JUN";
-months[6] = "JUL";
-months[7] = "AUG";
-months[8] = "SEP";
-months[9] = "OCT";
-months[10] = "NOV";
-months[11] = "DEC";
-var date = year + "-" + months[d.getMonth()] + "-" + day;
-var url = 'https://api.fantasydata.net/nba/v2/JSON/BoxScores/' + date;
+$scope.teams = {
+	'1610612737' : {name: 'Atlanta Hawks', short:'hawks'},
+	'1610612738' : {name: 'Boston Celtics', short: 'celtics'},
+	'1610612751' : {name: 'Brooklyn Nets', short: 'nets'},
+	'1610612766' : {name: 'Charlotte Hornets', short: 'hornets'},
+	'1610612741' : {name: 'Chicago Bulls', short: 'bulls'},
+	'1610612739' : {name: 'Cleveland Cavaliers', short: 'cavs'},
+	'1610612742' : {name: 'Dallas Mavericks', short: 'mavs'},
+	'1610612743' : {name: 'Denver Nuggets', short:'nuggets'},
+	'1610612765' : {name: 'Detroit Pistons', short:'pistons'},
+	'1610612744' : {name: 'Golden State Warriors', short:'gsw'},
+	'1610612745' : {name: 'Houston Rockets', short: 'rockets'},
+	'1610612754' : {name: 'Indiana Pacers', short: 'pacers'},
+	'1610612746' : {name: 'Los Angeles Clippers', short: 'clippers'},
+	'1610612747' : {name: 'Los Angeles Lakers', short: 'lakers'},
+	'1610612763' : {name: 'Memphis Grizzlies', short: 'griz'},
+	'1610612748' : {name: 'Miami Heat', short: 'heat'},
+	'1610612749' : {name: 'Milwaukee Bucks', short: 'bucks'},
+	'1610612750' : {name: 'Minnesota Timberwolves', short: 'wolves'},
+	'1610612740' : {name: 'New Orleans Pelicans', short: 'pels'},
+	'1610612752' : {name: 'New York Knicks', short: 'knicks'},
+	'1610612760' : {name: 'Oklahoma City Thunder', short: 'okc'},
+	'1610612753' : {name: 'Orlando Magic', short: 'magic'},
+	'1610612755' : {name: 'Philadelphia 76ers', short: 'sixers'},
+	'1610612756' : {name: 'Phoenix Suns', short: 'suns'},
+	'1610612757' : {name: 'Portland Trail Blazers', short: 'blazers'},
+	'1610612758' : {name: 'Sacramento Kings', short: 'kings'},
+	'1610612759' : {name: 'San Antonio Spurs', short: 'spurs'},
+	'1610612761' : {name: 'Toronto Raptors', short: 'raps'},
+	'1610612762' : {name: 'Utah Jazz', short: 'jazz'},
+	'1610612764' : {name: 'Washington Wizards', short: 'wiz'},
+}
+$scope.games = false;
+StatFactory.index(function(data){
+	$scope.games = data;
+})
 
-$http({
-    method : "GET",
-    url : url,
-		headers: {'Ocp-Apim-Subscription-Key' : '20f122f2858947a1b9875fbb253ea4ca'}
-    }).then(function mySucces(response) {
-        console.log(response)
-    }, function myError(response) {
-        console.log(response)
-    });
-
+$scope.test = function(){
+	console.log($scope.games);
+}
 
 
 });
