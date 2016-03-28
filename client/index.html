@@ -48,18 +48,36 @@
 <body ng-app='board' ng-controller="DashboardController">
   <div fullpage-scroll="top" class="wrap container-fluid">
 		<div class="block row">
-			<div class="col-md-12">
+			<div class="col-md-12" style="text-align:center">
 				<h2><u>Games Today</u></h2>
 				<button ng-click="test()">test</button>
 			</div>
 			<div class="loader">
-				<img ng-if="games.length < 2" src="./images/ball.gif">
+				<img ng-if="!games" src="./images/ball.gif">
 			</div>
-			<div class="game_box col-md-4 col-lg-4" ng-repeat="game in games">
-				<p><img src="./images/logos/{{teams[game[0].rowSet[0][7]].short}}.gif"> <span class="big">@</span> <img src="./images/logos/{{teams[game[0].rowSet[0][6]].short}}.gif"> </p>
+			<div class="game_box col-lg-offset-0 col-md-offset-1 col-sm-12 col-md-5 col-lg-4" ng-repeat="game in games">
+				<div class="row logos">
+					<div>
+						<figure>
+							<img src="./images/logos/{{teams[game[0].rowSet[0][7]].short}}.gif">
+						</figure>
+						<span>{{game[1].rowSet[1][6]}}</span>
+					</div>
+					<span class="big">@</span>
+					<div>
+						<figure>
+							<img class="logos" src="./images/logos/{{teams[game[0].rowSet[0][6]].short}}.gif">
+						</figure>
+						<span>{{game[1].rowSet[0][6]}}</span>
+				</div>
+			</div>
 				<p ng-if="game[1].rowSet[1][21]">
-					<strong>{{game[0].rowSet[0][4]}}</strong>
+					<strong>{{game[0].rowSet[0][4]}} {{game[0].rowSet[0][10]}}</strong>
+				</p>
+				<p ng-if="game[1].rowSet[1][21]">
 					{{game[1].rowSet[1][21]}} - {{game[1].rowSet[0][21]}}
+				</p>
+				<p ng-if="!game[1].rowSet[1][21]">&nbsp
 				</p>
 				<p ng-if="!game[1].rowSet[1][21]">
 					{{game[0].rowSet[0][4]}}

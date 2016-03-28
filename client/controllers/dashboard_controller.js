@@ -1,4 +1,4 @@
-board.controller('DashboardController', function($scope,$location,$routeParams,$http, parallaxHelper,StatFactory) {
+board.controller('DashboardController', function($scope,$location,$routeParams,$http, parallaxHelper,StatFactory,$timeout) {
 
 $scope.background = parallaxHelper.createAnimator(-0.3);
 
@@ -34,9 +34,9 @@ $scope.teams = {
 	'1610612762' : {name: 'Utah Jazz', short: 'jazz'},
 	'1610612764' : {name: 'Washington Wizards', short: 'wiz'},
 }
-$scope.games = false;
+
 StatFactory.index(function(data){
-	$scope.games = data;
+	$timeout(function(){$scope.games = data},750);
 })
 
 $scope.test = function(){

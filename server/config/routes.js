@@ -35,7 +35,6 @@ module.exports = function(app) {
         }
       }
       function callback(error, response, body) {
-        console.log(error);
         if (!error && response.statusCode == 200) {
           info = JSON.parse(body);
           res.json(info);
