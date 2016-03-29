@@ -52,22 +52,25 @@
 
 					 <ul class="nav navbar-nav">
 							 <li ng-class="{active: current_page =='standings'}">
-						 	 	<a href="#/standings" ng-click="current_page='standings'">
-									Standings
-								</a>
+							 	 	<a href="#/standings">
+										Standings
+									</a>
 							 </li>
 
 							 <li ng-class="{active: current_page == 'dashboard'}">
-									 <a href="#/" ng-click="current_page='dashboard'">
-											 Games Today
-									 </a>
+									<a href="#/">
+										Games Today
+									</a>
 							 </li>
-							 <li uib-dropdown>
-									 <a href="#" uib-dropdown-toggle>
-											 Just a clone
-											 <span class='caret'></span>
-									 </a>
-									 <tree tree='tree'></tree>
+							 <li ng-class="{active: current_page == 'leagueleaders'}" ng-click="get_leaders()">
+									<a href="#/leaders">
+										League Leaders
+									</a>
+							 </li>
+							 <li ng-class="{active: current_page == 'boxscore'}">
+									<a href="#/boxscore">
+										Box Score
+									</a>
 							 </li>
 					 </ul>
 			 </div>

@@ -38,28 +38,32 @@ $scope.teams = {
 	'1610612764' : {name: 'Washington Wizards', short: 'wiz'},
 }
 
+
 StatFactory.index(function(games,west,east){
 	$timeout(function(){
 		$scope.games = games;
 		$scope.standings_west = west;
 		$scope.standings_east = east;
-		console.log($scope.standings_west);
 	},1000);
-
-})
+});
 
 $scope.test = function(){
 	console.log($scope.games);
 }
 
-$scope.tree = [{
-            name: "States",
-            link: "#",
-            subtree: [{
-                name: "state 1",
-                link: "state1"
-            }]
-}];
+$scope.show_boxscore = function(game){
+	$scope.boxscore = game;
+	$state.go('boxscore')
+	console.log(game);
+}
+
+$scope.get_leaders = function(){
+	StatFactory.get_leaders(function(players){
+		$scope.players=players;
+	});
+	console.log($scope.players);
+}
+
 
 
 });

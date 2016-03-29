@@ -12,5 +12,13 @@ board.config(function ($stateProvider, $urlRouterProvider) {
       url:'/standings',
       templateUrl: 'partials/standings.html',
     })
+    .state('boxscore',{
+      url:'/boxscore',
+      templateUrl: 'partials/boxscore.html',
+    })
+    .state('leagueleaders',{
+      url:'/leaders',
+      templateUrl: 'partials/leaders.html',
+    })
 
 });

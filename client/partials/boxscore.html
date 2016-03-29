@@ -1,0 +1,53 @@
+<div class="row">
+  <div ng-if="!boxscore" style="text-align:center" class="warning">
+    <h1>Please choose a game!</h1>
+  </div>
+  <div ng-if="boxscore" class="boxscore">
+    <div class="col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1">
+      <table class="table table-sm table-bordered" id="boxscore_table">
+        <thead class="thead-default">
+          <tr>
+            <th class="center_text">Team</th>
+            <th class="center_text">Q1</th>
+            <th class="center_text">Q2</th>
+            <th class="center_text">Q3</th>
+            <th class="center_text">Q4</th>
+            <th class="center_text" ng-if="boxscore[1].rowSet[1][11]">OT1</th>
+            <th class="center_text"
+            ng-if="boxscore[1].rowSet[1][12]">OT2</th>
+            <th class="center_text"
+            ng-if="boxscore[1].rowSet[1][13]">OT3</th>
+            <th class="center_text">TOT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="team in boxscore[1].rowSet">
+            <th class="center_text">{{team[4]}}</th>
+            <th class="center_text">{{team[7]}}</th>
+            <th class="center_text">{{team[8]}}</th>
+            <th class="center_text">{{team[9]}}</th>
+            <th class="center_text">{{team[10]}}</th>
+            <th class="center_text" ng-if="team[11]">{{team[11]}}</th>
+            <th class="center_text"
+            ng-if="team[12]">{{team[12]}}</th>
+            <th class="center_text"
+            ng-if="team[13]">{{team[13]}}</th>
+            <th class="center_text">{{team[21]}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4 col-lg-4">
+      <h3 ng-if="!boxscore[1].rowSet[1][21]">
+        {{boxscore[0].rowSet[0][4]}}
+      </h3>
+      <h3 ng-if="boxscore[1].rowSet[1][21]">
+        {{boxscore[0].rowSet[0][4]}} {{boxscore[0].rowSet[0][10]}}
+      </h3>
+    </div>
+    <div class="col-md-4 col-lg-4">
+      <h4 ng-if="boxscore[0].rowSet[0][11]">Broadcast: {{boxscore[0].rowSet[0][11]}}</h4>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ board.factory('StatFactory', function($http) {
 		var factory = {};
 		var west;
 		var east;
+		var players;
 		factory.index = function(callback){
 			var games = []
 			$http.get('/scoreboard').success(function(output) {
@@ -14,6 +15,13 @@ board.factory('StatFactory', function($http) {
 				}
 				callback(games,west,east);
 			});
+		}
+
+		factory.get_leaders = function(callback){
+			$http.get('/leagueleaders').success(function(output){
+				players = output;
+			})
+			callback(players);
 		}
 			return factory;
 	});

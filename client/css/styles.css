@@ -181,3 +181,11 @@ figure:hover+span {
 .fade_logo{
   opacity:.65;
 }
+
+.boxscore{
+  margin-top:20px;
+}
+
+.center_text{
+  text-align: center;
+}
