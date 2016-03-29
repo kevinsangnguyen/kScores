@@ -1,4 +1,45 @@
-<div>
-  Standings
-  <button ng-click="go();">go</button>
+<div class="row">
+
+  <div class="col-md-6 table-responsive panel">
+    <div class="panel-heading" style="text-align:center;">
+      <img src='../images/logos/west.gif' />
+    </div>
+    <table class="table table-reflow table-hover">
+      <tbody>
+        <tr ng-repeat="team in standings_west track by $index" ng-class="{playoffs_west: $index < 8}">
+          <td class="center">
+            {{$index + 1}}
+          </td>
+          <td class="center">
+            <img ng-class="{fade_logo: $index >=8}" src="../images/logos/{{teams[team[0]].short}}.gif">
+          </td>
+          <td class="center">
+            {{team[7]}} - {{team[8]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-6 table-responsive panel">
+    <div class="panel-heading" style="text-align:center;">
+      <img src='../images/logos/east.gif' />
+    </div>
+    <table class="table table-reflow table-hover">
+      <tbody>
+        <tr ng-repeat="team in standings_east" ng-class="{playoffs_east: $index < 8}">
+          <td class="center">
+            {{$index + 1}}
+          </td>
+          <td class="center">
+            <img ng-class="{fade_logo: $index >=8}"src="../images/logos/{{teams[team[0]].short}}.gif">
+          </td>
+          <td class="center">
+            {{team[7]}} - {{team[8]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>

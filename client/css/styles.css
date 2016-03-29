@@ -37,8 +37,12 @@ html, body{
   box-shadow: 0 10px 6px -6px #777;
 }
 
-ul li .navbar-nav .active{
-  background-color:red;
+.nav > li {
+  margin-top: -10px;
+}
+
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+  color:#720B87;
 }
 
 button .navbar-toggle {
@@ -141,6 +145,7 @@ figure:hover+span {
   text-align:center;
   box-sizing:border-box;
   transition: 1s ease;
+  cursor:pointer;
 }
 
 .game_box:hover{
@@ -153,4 +158,26 @@ figure:hover+span {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   -webkit-transition: all 1s ease;
+}
+
+.table tbody>tr>td.center{
+    vertical-align: middle;
+    font-size:120%;
+    font-weight:bold;
+}
+
+.playoffs_west{
+  font-size: 135%;
+  font-weight: bolder;
+  color:#B80C09;
+}
+
+.playoffs_east{
+  font-size: 135%;
+  font-weight: bolder;
+  color:#2660A4;
+}
+
+.fade_logo{
+  opacity:.65;
 }

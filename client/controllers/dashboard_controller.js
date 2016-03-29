@@ -38,8 +38,14 @@ $scope.teams = {
 	'1610612764' : {name: 'Washington Wizards', short: 'wiz'},
 }
 
-StatFactory.index(function(data){
-	$timeout(function(){$scope.games = data},750);
+StatFactory.index(function(games,west,east){
+	$timeout(function(){
+		$scope.games = games;
+		$scope.standings_west = west;
+		$scope.standings_east = east;
+		console.log($scope.standings_west);
+	},1000);
+
 })
 
 $scope.test = function(){
