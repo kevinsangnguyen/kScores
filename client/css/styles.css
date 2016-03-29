@@ -24,8 +24,29 @@ html, body{
       margin: -5% 0;
 }
 
+.navbar-default{
+  position:relative;
+  z-index:999;
+  width:100%;
+  background-color:#FDFFF7 !important;
+  height:5%;
+  top:82%;
+  text-align:center;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+ul li .navbar-nav .active{
+  background-color:red;
+}
+
+button .navbar-toggle {
+    background-color: black;
+}
+
 .block{
-  height:70%;
+  height:65%;
   top: 50%;
   transform: translateY(-50%);
   width:100%;
@@ -43,7 +64,6 @@ html, body{
     .navbar .navbar-nav {
         display: inline-block;
         float: none;
-        vertical-align: top;
     }
 
     .navbar .navbar-collapse {
@@ -54,6 +74,7 @@ html, body{
 .loader img{
   display:block;
   margin:auto;
+  z-index:-1;
 }
 
 .logos{
@@ -99,6 +120,7 @@ figure {
 	overflow: hidden;
 }
 
+
 figure:hover+span {
 	bottom: -32px;
 	opacity: 1;
@@ -111,11 +133,24 @@ figure:hover+span {
 }
 
 .game_box{
+  padding-top:1px;
+  width:90%;
+  height:90%;
+  margin: 5px 0px;
   font-size:120%;
   text-align:center;
   box-sizing:border-box;
+  transition: 1s ease;
 }
 
 .game_box:hover{
+  box-shadow: 0 0 0 10px #000000;
+  transition: 1s ease;
+}
 
+
+.game_box img:hover{
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: all 1s ease;
 }

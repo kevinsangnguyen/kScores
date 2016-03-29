@@ -1,6 +1,7 @@
 {
   "name": "Project",
   "dependencies": {
+    "angular-ui-router": "^0.2.18",
     "body-parser": "^1.14.2",
     "ejs": "1.0.0",
     "express": "~4.10.0",
@@ -8,6 +9,7 @@
     "mongoose": "^4.4.2",
     "mongoose-validator": "^1.2.4",
     "request": "^2.69.0",
-    "socket.io": "^1.4.5"
+    "socket.io": "^1.4.5",
+    "ui-navbar": "^0.4.3"
   }
 }

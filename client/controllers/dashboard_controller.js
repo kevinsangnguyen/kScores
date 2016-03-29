@@ -1,5 +1,8 @@
-board.controller('DashboardController', function($scope,$location,$routeParams,$http, parallaxHelper,StatFactory,$timeout) {
-
+board.controller('DashboardController', function($scope,$location,$http, parallaxHelper,StatFactory,$timeout,$state,$window,$rootScope) {
+	$rootScope.$on('$stateChangeStart',
+	function(event, toState, toParams, fromState, fromParams, options){
+		$scope.current_page = toState.name;
+ })
 $scope.background = parallaxHelper.createAnimator(-0.3);
 
 $scope.teams = {
@@ -42,6 +45,15 @@ StatFactory.index(function(data){
 $scope.test = function(){
 	console.log($scope.games);
 }
+
+$scope.tree = [{
+            name: "States",
+            link: "#",
+            subtree: [{
+                name: "state 1",
+                link: "state1"
+            }]
+}];
 
 
 });
