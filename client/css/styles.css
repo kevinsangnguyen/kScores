@@ -186,6 +186,20 @@ figure:hover+span {
   margin-top:20px;
 }
 
+.clock{
+  border: 2px solid black;
+  text-align: center;
+}
+
 .center_text{
   text-align: center;
+}
+
+.leagueleaders{
+  text-size:110%;
+  font-weight: 500;
+}
+
+.row{
+  margin-right:0px !important;
 }

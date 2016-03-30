@@ -34,7 +34,7 @@
 <body ng-app='board' ng-controller="DashboardController">
   <div fullpage-scroll="top" class="wrap container-fluid">
 		<div class="block row">
-			<div style="padding:0px 8px" ui-view></div>
+			<div style="padding:0px 7px" ui-view></div>
 		</div>
 		<nav class="navbar navbar-default navbar-fixed-bottom bg-faded" role="navigation">
 			 <div class="navbar-header">
@@ -62,7 +62,7 @@
 										Games Today
 									</a>
 							 </li>
-							 <li ng-class="{active: current_page == 'leagueleaders'}" ng-click="get_leaders()">
+							 <li ng-class="{active: current_page == 'leagueleaders'}">
 									<a href="#/leaders">
 										League Leaders
 									</a>

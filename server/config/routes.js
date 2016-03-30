@@ -44,7 +44,7 @@ module.exports = function(app) {
     });
 
     app.get('/leagueleaders', function(req,res){
-      var url = 'http://stats.nba.com/stats/leagueleaders/?LeagueID=00&PerMode=PerGame&StatCategory=PTS&Season=2015&SeasonType=Regular';
+      var url = 'http://stats.nba.com/stats/leagueleaders/?LeagueID=00&PerMode=PerGame&StatCategory=PTS&Season=2015-16&SeasonType=Regular Season&Scope=RS';
       var options = {
         url: url,
         headers: {
@@ -53,8 +53,13 @@ module.exports = function(app) {
       }
       function callback(error, response, body) {
         if (!error && response.statusCode == 200) {
+          var players = [];
           info = JSON.parse(body);
-          res.json(info);
+          for(var i=0; i < 50; i++){
+            players.push(info.resultSet.rowSet[i])
+          }
+          console.log(info.resultSet.headers);
+          res.json(players);
         }
       }
       request(options,callback);

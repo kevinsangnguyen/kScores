@@ -49,6 +49,7 @@ StatFactory.index(function(games,west,east){
 
 $scope.test = function(){
 	console.log($scope.games);
+	console.log('players',$scope.players)
 }
 
 $scope.show_boxscore = function(game){
@@ -56,13 +57,10 @@ $scope.show_boxscore = function(game){
 	$state.go('boxscore')
 	console.log(game);
 }
-
-$scope.get_leaders = function(){
-	StatFactory.get_leaders(function(players){
+$scope.players = [];
+StatFactory.get_leaders(function(players){
 		$scope.players=players;
-	});
-	console.log($scope.players);
-}
+});
 
 
 

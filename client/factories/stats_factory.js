@@ -20,8 +20,8 @@ board.factory('StatFactory', function($http) {
 		factory.get_leaders = function(callback){
 			$http.get('/leagueleaders').success(function(output){
 				players = output;
+				callback(players);
 			})
-			callback(players);
 		}
 			return factory;
 	});

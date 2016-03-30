@@ -1,16 +1,16 @@
-<div class="row" style="padding-top:50px">
-  <div class="loader">
-  	<img ng-if="!players" src="./images/ball.gif">
+<div class="row" class="leagueleaders">
+  <div ng-if="!players" class="loader">
+  	<img src="./images/ball.gif">
   </div>
-  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-    <h1 class="center_text">League Leaders</h1>
-    <table class="table table-sm table-bordered">
-      <thead class="thead-default">
+  <h1 class="center_text">League Leaders</h1>
+  <div style="padding-top:75px" class="col-sm-12 col-md-12 col-lg-12 col-xl-12" ng-if="players">
+    <table class="table table-sm table-bordered table-striped table-hover">
+      <thead class="thead-inverse">
         <tr>
-          <th field="RANK">Rank</th>
-              <th class="player sortable" field="PLAYER">Player</th>
+          <th>Rank</th>
+              <th>Player</th>
               <th class="cf" field="GP" ="Games Played - The number of games a player or team has played.">GP</th>
-              <th class="cf" field="MIN" popover-trigger="mouseenter" uib-popover="Minutes - The number of minutes a player or team has played." ng-show="params.PerMode !='Per48'">MIN</th>
+              <th class="cf" field="MIN" popover-trigger="mouseenter" uib-popover="Minutes - The number of minutes a player or team has played.">MIN</th>
               <th class="cf" field="PTS" popover-trigger="mouseenter" uib-popover="Points - The number of points a player or team has scored. A point is scored when a player makes a basket.">PTS</th>
               <th class="cf" field="FGM" popover-trigger="mouseenter" uib-popover="Field Goals Made - The number of field goals that a player or team has made. This includes both 2 pointers and 3 pointers.">FGM</th>
               <th class="cf" field="FGA" popover-trigger="mouseenter" uib-popover="Field Goals Attempted - The number of field goals that a player or team has attempted. This includes both 2 pointers and 3 pointers.">FGA</th>
@@ -28,10 +28,14 @@
               <th class="cf" field="STL" popover-trigger="mouseenter" uib-popover="Steals - A steal occurs when a defensive player takes the ball from a player on offense, causing a turnover.">STL</th>
               <th class="cf" field="BLK" popover-trigger="mouseenter" uib-popover="Blocks - A block occurs when an offensive player attempts a shot, and the defense player tips the ball, blocking their chance to score.">BLK</th>
               <th class="cf" field="TOV" popover-trigger="mouseenter" uib-popover="Turnovers - A turnover occurs when the team on offense loses the ball to the defense. ">TOV</th>
-              <th class="cf" field="PF" popover-trigger="mouseenter" uib-popover="Personal Fouls - The total number of fouls that a player or team has committed." ng-if="params.PerMode !='PerGame'">PF</th>
+              <th class="cf" field="PF" popover-trigger="mouseenter" uib-popover="Personal Fouls - The total number of fouls that a player or team has committed." >PF</th>
               <th class="cf" field="EFF" popover-trigger="mouseenter" uib-popover="Efficiency - This a formula to quickly evaluate a player's performance on the court. It is calculated using this formula: ((Points + Rebounds + Assists + Steals + Blocks) - ((Field Goals Att. - Field Goals Made) + (Free Throws Att. - Free Throws Made) + Turnovers)).">EFF</th>
-              <th class="cf" field="STL_TOV" popover-trigger="mouseenter" uib-popover="Steal to Turnover Ratio - The number of steals a player of team has compared to the number of turnovers they have committed." ng-if="params.PerMode =='Totals'">AST/<br/>TOV</th>
-              <th class="cf" field="AST_TOV" popover-trigger="mouseenter" uib-popover="Assist to Turnover Ratio - The number of assists for player or team compared to the number of turnovers they have committed." ng-if="params.PerMode =='Totals'">STL/<br/>TOV</th>
         </tr>
       </thead>
+      <tbody>
+        <tr ng-repeat="player in players | orderBy: 'category'">
+          <td ng-repeat="i in player track by $index" ng-if="$index>0">{{i}}</td>
+        </tr>
+      </tbody>
+
     </table>
