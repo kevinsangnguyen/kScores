@@ -4,7 +4,7 @@
   </div>
   <div ng-if="boxscore" class="boxscore">
     <div class="col-md-4 col-lg-4">
-      <table class="table table-sm table-bordered" id="boxscore_table">
+      <table class="table table-sm table-bordered table-condensed table-responsive" id="boxscore_table">
         <thead class="thead-default">
           <tr>
             <th class="center_text">Team</th>
@@ -53,6 +53,64 @@
   </div>
 </div>
 
-<div class="row">
-  
+<div class="row" ng-if="boxscore[1].rowSet[1][21]">
+  <div class="col-md-12 col-lg-12">
+    <div class="panel-heading" style="text-align:center;">
+      <a style="margin-right:25px; cursor:pointer;" ng-click="change_team(boxscore[1].rowSet[1][3])">{{teams[boxscore[1].rowSet[1][3]].name}}</a>
+      <a style="cursor:pointer;"
+      ng-click="change_team(boxscore[1].rowSet[0][3])"
+      >{{teams[boxscore[1].rowSet[0][3]].name}}</a>
+    </div>
+  </div>
+</div>
+
+<div class="row" ng-if="boxscore[1].rowSet[1][21]">
+  <div class="col-md-12 col-lg-12">
+    <div class="panel-heading" style="text-align:center;">
+      <img src='../images/logos/{{teams[boxscore_team].short}}.gif' />
+    </div>
+    <table class="table table-sm table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>POS</th>
+          <th>MIN</th>
+          <th>FG</th>
+          <th>FG%</th>
+          <th>3P</th>
+          <th>3PT%</th>
+          <th>FT</th>
+          <th>FT%</th>
+          <th>REB</th>
+          <th>AST</th>
+          <th>STL</th>
+          <th>BLK</th>
+          <th>TO</th>
+          <th>+/-</th>
+          <th>PTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="player in boxscore[4].rowSet track by $index" ng-if="player[1] == boxscore_team">
+          <td>{{player[5]}}</td>
+          <td>{{player[6]}}</td>
+          <td ng-if="player[7] == ''">{{player[8]}}</td>
+          <td ng-if="player[7] != ''">{{player[7]}}</td>
+          <td>{{player[9]}}/{{player[10]}}</td>
+          <td>{{player[11]}}</td>
+          <td>{{player[12]}}/{{player[13]}}</td>
+          <td>{{player[14]}}</td>
+          <td>{{player[15]}}/{{player[16]}}</td>
+          <td>{{player[17]}}</td>
+          <td>{{player[20]}}</td>
+          <td>{{player[21]}}</td>
+          <td>{{player[22]}}</td>
+          <td>{{player[23]}}</td>
+          <td>{{player[24]}}</td>
+          <td>{{player[27]}}</td>
+          <td>{{player[26]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

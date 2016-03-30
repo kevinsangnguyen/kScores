@@ -38,13 +38,23 @@ $scope.teams = {
 	'1610612764' : {name: 'Washington Wizards', short: 'wiz'},
 }
 
+$scope.refresh = function (){
+	$scope.games = null;
+	StatFactory.index(function(games,west,east){
+		$timeout(function(){
+			$scope.games = games;
+			$scope.standings_west = west;
+			$scope.standings_east = east;
+		},1250);
+	});
+}
 
 StatFactory.index(function(games,west,east){
 	$timeout(function(){
 		$scope.games = games;
 		$scope.standings_west = west;
 		$scope.standings_east = east;
-	},1000);
+	},1250);
 });
 
 $scope.test = function(){
@@ -55,20 +65,26 @@ $scope.test = function(){
 $scope.show_boxscore = function(game){
 	$scope.boxscore = game;
 	$state.go('boxscore')
-	console.log(game);
+	$scope.boxscore_team = $scope.boxscore[1].rowSet[1][3];
 }
+
+$scope.change_team = function(teamID){
+	$scope.boxscore_team = teamID;
+}
+
 $scope.players = [];
+
 StatFactory.get_leaders(function(players){
 		$scope.players=players;
 },'PTS');
 
 $scope.get_leaders = function(category){
+	$scope.players = null;
 	StatFactory.get_leaders(function(players){
-			$scope.players = [];
 			$scope.players=players;
-			console.log(players);
 	},category);
 }
+
 
 
 
