@@ -43,8 +43,8 @@ module.exports = function(app) {
       request(options,callback);
     });
 
-    app.get('/leagueleaders', function(req,res){
-      var url = 'http://stats.nba.com/stats/leagueleaders/?LeagueID=00&PerMode=PerGame&StatCategory=PTS&Season=2015-16&SeasonType=Regular Season&Scope=RS';
+    app.get('/leagueleaders/:category', function(req,res){
+      var url = 'http://stats.nba.com/stats/leagueleaders/?LeagueID=00&PerMode=PerGame&StatCategory='+ req.params.category + '&Season=2015-16&SeasonType=Regular Season&Scope=RS';
       var options = {
         url: url,
         headers: {

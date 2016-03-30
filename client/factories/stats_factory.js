@@ -17,8 +17,8 @@ board.factory('StatFactory', function($http) {
 			});
 		}
 
-		factory.get_leaders = function(callback){
-			$http.get('/leagueleaders').success(function(output){
+		factory.get_leaders = function(callback,category){
+			$http.get('/leagueleaders/' + category).success(function(output){
 				players = output;
 				callback(players);
 			})

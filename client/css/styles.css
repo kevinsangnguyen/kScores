@@ -203,3 +203,7 @@ figure:hover+span {
 .row{
   margin-right:0px !important;
 }
+
+.cf{
+  cursor:pointer;
+}

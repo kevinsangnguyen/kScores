@@ -60,7 +60,15 @@ $scope.show_boxscore = function(game){
 $scope.players = [];
 StatFactory.get_leaders(function(players){
 		$scope.players=players;
-});
+},'PTS');
+
+$scope.get_leaders = function(category){
+	StatFactory.get_leaders(function(players){
+			$scope.players = [];
+			$scope.players=players;
+			console.log(players);
+	},category);
+}
 
 
 

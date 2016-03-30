@@ -2,39 +2,38 @@
   <div ng-if="!players" class="loader">
   	<img src="./images/ball.gif">
   </div>
-  <h1 class="center_text">League Leaders</h1>
+  <h1 class="center_text">League Leaders Per Game</h1>
   <div style="padding-top:75px" class="col-sm-12 col-md-12 col-lg-12 col-xl-12" ng-if="players">
     <table class="table table-sm table-bordered table-striped table-hover">
       <thead class="thead-inverse">
         <tr>
           <th>Rank</th>
               <th>Player</th>
-              <th class="cf" field="GP" ="Games Played - The number of games a player or team has played.">GP</th>
-              <th class="cf" field="MIN" popover-trigger="mouseenter" uib-popover="Minutes - The number of minutes a player or team has played.">MIN</th>
-              <th class="cf" field="PTS" popover-trigger="mouseenter" uib-popover="Points - The number of points a player or team has scored. A point is scored when a player makes a basket.">PTS</th>
-              <th class="cf" field="FGM" popover-trigger="mouseenter" uib-popover="Field Goals Made - The number of field goals that a player or team has made. This includes both 2 pointers and 3 pointers.">FGM</th>
-              <th class="cf" field="FGA" popover-trigger="mouseenter" uib-popover="Field Goals Attempted - The number of field goals that a player or team has attempted. This includes both 2 pointers and 3 pointers.">FGA</th>
-              <th class="cf" field="FG_PCT" popover-trigger="mouseenter" uib-popover="Field Goal Percentage - The percentage of field goals thapopover-trigger="mouseenter" t a player makes. The formula to determine field goal percentage is: Field Goals Made/Field Goals Attempted.">FG%</th>
-              <th class="cf" field="FG3M" popover-trigger="mouseenter" uib-popover="3 Point Field Goals Made - The number of 3 point field goals that a player or team has made.">3PM</th>
-              <th class="cf" field="FG3A" popover-trigger="mouseenter" uib-popover="3 Point Field Goals Attempted - The number of 3 point field goals that a player or team has attempted.">3PA</th>
-              <th class="cf" field="FG3_PCT" popover-trigger="mouseenter" uib-popover="3 Point Field Goal Percentage - The percentage of 3 point field goals that a player or team has made. The formula to determine 3 point field goal percentage is: 3 Point Field Goals Made/3 Point Field Goals Attempted.">3P%</th>
-              <th class="cf" field="FTM" popover-trigger="mouseenter" uib-popover="Free Throws Made - The number of free throws that a player or team has successfully made.">FTM</th>
-              <th class="cf" field="FTA" popover-trigger="mouseenter" uib-popover="Free Throws Attempted - The number of free throws that a player or team has taken.">FTA</th>
-              <th class="cf" field="FT_PCT" popover-trigger="mouseenter" uib-popover="Free Throw Percentage - The percentage of free throws that a player or team has made. The formula to determine free throw percentage is: Free Throws Made/Free Throws Attempted.">FT%</th>
-              <th class="cf" field="OREB" popover-trigger="mouseenter" uib-popover="Offensive Rebounds - The number of rebounds a player or team has collected while they were on offense.">OREB</th>
-              <th class="cf" field="DREB" popover-trigger="mouseenter" uib-popover="Defensive Rebounds - The number of rebounds a player or team has collected while they were on defense.">DREB</th>
-              <th class="cf" field="REB" popover-trigger="mouseenter" uib-popover="Rebounds - A rebound occurs when a player recovers the ball after a missed shot. This statistic is the number of total rebounds a player or team has collected on either offense or defense.">REB</th>
-              <th class="cf" field="AST" popover-trigger="mouseenter" uib-popover="Assists  - An assist occurs when a player completes a pass to a teammate that directly leads to a made field goal.">AST</th>
-              <th class="cf" field="STL" popover-trigger="mouseenter" uib-popover="Steals - A steal occurs when a defensive player takes the ball from a player on offense, causing a turnover.">STL</th>
-              <th class="cf" field="BLK" popover-trigger="mouseenter" uib-popover="Blocks - A block occurs when an offensive player attempts a shot, and the defense player tips the ball, blocking their chance to score.">BLK</th>
-              <th class="cf" field="TOV" popover-trigger="mouseenter" uib-popover="Turnovers - A turnover occurs when the team on offense loses the ball to the defense. ">TOV</th>
-              <th class="cf" field="PF" popover-trigger="mouseenter" uib-popover="Personal Fouls - The total number of fouls that a player or team has committed." >PF</th>
-              <th class="cf" field="EFF" popover-trigger="mouseenter" uib-popover="Efficiency - This a formula to quickly evaluate a player's performance on the court. It is calculated using this formula: ((Points + Rebounds + Assists + Steals + Blocks) - ((Field Goals Att. - Field Goals Made) + (Free Throws Att. - Free Throws Made) + Turnovers)).">EFF</th>
+              <th class="cf" field="GP" popover-trigger="mouseenter" uib-popover="Games Played - The number of games a player or team has played.">GP</th>
+              <th class="cf" ng-click="get_leaders('MIN')" popover-trigger="mouseenter" uib-popover="Minutes - The number of minutes a player or team has played.">MIN</th>
+              <th class="cf" ng-click="get_leaders('FGM')" popover-trigger="mouseenter" uib-popover="Field Goals Made - The number of field goals that a player or team has made. This includes both 2 pointers and 3 pointers.">FGM</th>
+              <th class="cf" ng-click="get_leaders('FGA')" popover-trigger="mouseenter" uib-popover="Field Goals Attempted - The number of field goals that a player or team has attempted. This includes both 2 pointers and 3 pointers.">FGA</th>
+              <th class="cf" ng-click="get_leaders('FG_PCT')" popover-trigger="mouseenter" uib-popover="Field Goal Percentage - The percentage of field goals thapopover-trigger="mouseenter" t a player makes. The formula to determine field goal percentage is: Field Goals Made/Field Goals Attempted.">FG%</th>
+              <th class="cf" ng-click="get_leaders('FG3M')" popover-trigger="mouseenter" uib-popover="3 Point Field Goals Made - The number of 3 point field goals that a player or team has made.">3PM</th>
+              <th class="cf" ng-click="get_leaders('FG3A')" popover-trigger="mouseenter" uib-popover="3 Point Field Goals Attempted - The number of 3 point field goals that a player or team has attempted.">3PA</th>
+              <th class="cf" ng-click="get_leaders('FG3_PCT')" popover-trigger="mouseenter" uib-popover="3 Point Field Goal Percentage - The percentage of 3 point field goals that a player or team has made. The formula to determine 3 point field goal percentage is: 3 Point Field Goals Made/3 Point Field Goals Attempted.">3P%</th>
+              <th class="cf" ng-click="get_leaders('FTM')" popover-trigger="mouseenter" uib-popover="Free Throws Made - The number of free throws that a player or team has successfully made.">FTM</th>
+              <th class="cf" ng-click="get_leaders('FTA')" popover-trigger="mouseenter" uib-popover="Free Throws Attempted - The number of free throws that a player or team has taken.">FTA</th>
+              <th class="cf" ng-click="get_leaders('FT_PCT')" popover-trigger="mouseenter" uib-popover="Free Throw Percentage - The percentage of free throws that a player or team has made. The formula to determine free throw percentage is: Free Throws Made/Free Throws Attempted.">FT%</th>
+              <th class="cf" ng-click="get_leaders('OREB')" popover-trigger="mouseenter" uib-popover="Offensive Rebounds - The number of rebounds a player or team has collected while they were on offense.">OREB</th>
+              <th class="cf" ng-click="get_leaders('DREB')" popover-trigger="mouseenter" uib-popover="Defensive Rebounds - The number of rebounds a player or team has collected while they were on defense.">DREB</th>
+              <th class="cf" ng-click="get_leaders('REB')" popover-trigger="mouseenter" uib-popover="Rebounds - A rebound occurs when a player recovers the ball after a missed shot. This statistic is the number of total rebounds a player or team has collected on either offense or defense.">REB</th>
+              <th class="cf" ng-click="get_leaders('AST')" popover-trigger="mouseenter" uib-popover="Assists  - An assist occurs when a player completes a pass to a teammate that directly leads to a made field goal.">AST</th>
+              <th class="cf" ng-click="get_leaders('STL')" popover-trigger="mouseenter" uib-popover="Steals - A steal occurs when a defensive player takes the ball from a player on offense, causing a turnover.">STL</th>
+              <th class="cf" ng-click="get_leaders('BLK')" popover-trigger="mouseenter" uib-popover="Blocks - A block occurs when an offensive player attempts a shot, and the defense player tips the ball, blocking their chance to score.">BLK</th>
+              <th class="cf" ng-click="get_leaders('TOV')" popover-trigger="mouseenter" uib-popover="Turnovers - A turnover occurs when the team on offense loses the ball to the defense. ">TOV</th>
+              <th class="cf" ng-click="get_leaders('PTS')" popover-trigger="mouseenter" uib-popover="Points - The number of points a player or team has scored. A point is scored when a player makes a basket.">PTS</th>
+              <th class="cf" ng-click="get_leaders('EFF')" popover-trigger="mouseenter" uib-popover="Efficiency - This a formula to quickly evaluate a player's performance on the court. It is calculated using this formula: ((Points + Rebounds + Assists + Steals + Blocks) - ((Field Goals Att. - Field Goals Made) + (Free Throws Att. - Free Throws Made) + Turnovers)).">EFF</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="player in players | orderBy: 'category'">
-          <td ng-repeat="i in player track by $index" ng-if="$index>0">{{i}}</td>
+          <td ng-repeat="i in player track by $index" ng-if="$index != 0 && $index != 3">{{i}}</td>
         </tr>
       </tbody>
 
