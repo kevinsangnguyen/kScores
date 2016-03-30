@@ -3,7 +3,7 @@ html, body{
   width:100vw;
   margin: 0;
   padding: 0;
-  font-family: 'Ek Mukta', sans-serif;
+  font-family: 'Ek Mukta', sans-serif !important;
   background-image: url('../images/court.jpg');/*override as needed*/
 	background-size: 100% 100%;
 	background-position: center center;
@@ -30,7 +30,7 @@ html, body{
   width:100%;
   background-color:#FDFFF7 !important;
   height:5%;
-  top:82%;
+  top:78%;
   text-align:center;
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
@@ -50,9 +50,10 @@ button .navbar-toggle {
 }
 
 .block{
-  height:65%;
-  top: 50%;
-  transform: translateY(-50%);
+  transition: all 0.5s ease;
+  height:70%;
+  top: 46%;
+  transform: translateY(-54%);
   width:100%;
   position: absolute;
   background: #FDFFF7;
@@ -62,6 +63,11 @@ button .navbar-toggle {
   box-shadow: 0 10px 6px -6px #777;
   box-sizing:border-box;
   overflow-y: auto;
+  opacity:.95;
+}
+
+.block:hover{
+  opacity:1;
 }
 
 @media (min-width: 768px) {
@@ -206,4 +212,172 @@ figure:hover+span {
 
 .cf{
   cursor:pointer;
+}
+
+.warning{
+  margin-top:150px;
+  text-align: center;
+}
+
+
+
+
+/* BALL */
+#box {
+  position: absolute;
+	width: 200px;
+	height: 300px;
+  right: 0;
+  bottom: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#ball {
+	z-index: 3;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	margin-left: -50px;
+	-webkit-border-radius: 55px;
+	-moz-border-radius: 55px;
+	border-radius: 55px;
+  background-color:orange;
+
+	-webkit-animation: bounce 3.95s forwards infinite;
+	-moz-animation: bounce 3.95s forwards infinite;
+	-ms-animation: bounce 3.95s forwards infinite;
+	animation: bounce 3.95s forwards infinite;
+}
+#shadow {
+	position: absolute;
+	height: 5px;
+	width: 100px;
+  background-color: rgba(0,0,0,1);
+	bottom: 10px;
+	left: 50%;
+
+	-webkit-animation: shadow 3.85s forwards infinite;
+	-moz-animation: shadow 3.85s forwards infinite;
+	-ms-animation: shadow 3.85s forwards infinite;
+	animation: shadow 3.85s forwards infinite;
+}
+.loading {
+  position: absolute;
+  text-align: center;
+  font-family: sans-serif;
+  width: 100%;
+  margin-left: 10px;
+  letter-spacing: 3px;
+  bottom: -20px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 8px;
+}
+@keyframes bounce {
+	0% {
+		top: 0;
+		animation-timing-function: ease-in;
+	}
+	16% {
+		top: 190px;
+		animation-timing-function: ease-out;
+	}
+	32% {
+		top: 50px;
+		animation-timing-function: ease-in;
+	}
+	48% {
+		top: 190px;
+		animation-timing-function: ease-out;
+	}
+	62% {
+		top: 60px;
+		animation-timing-function: ease-in;
+	}
+	78% {
+		top: 190px;
+		animation-timing-function: ease-out;
+	}
+	85% {
+		top: 50px;
+		animation-timing-function: ease-in;
+	}
+  90% {
+		top: 190px;
+		animation-timing-function: ease-out;
+	}
+	100% {
+		top: 0;
+		animation-timing-function: ease-in;
+	}
+}
+
+
+@keyframes shadow {
+	0% {
+		width: 10px;
+		border-radius:10px/5px;
+		margin-left: -5px;
+		-webkit-animation-timing-function: ease-in;
+    background-color: rgba(0,0,0,0.2);
+	}
+	16% {
+		width: 100px;
+		-webkit-border-radius:100px/5px;
+		margin-left: -50px;
+		-webkit-animation-timing-function: ease-out;
+    background-color: rgba(0,0,0,0.9);
+	}
+	32% {
+		width: 30px;
+		-webkit-border-radius: 30px/5px;
+		margin-left: -15px;
+		-webkit-animation-timing-function: ease-in;
+    background-color: rgba(0,0,0,.7);
+	}
+	48% {
+		width: 100px;
+		-webkit-border-radius:100px/5px;
+		margin-left: -50px;
+		-webkit-animation-timing-function: ease-out;
+    background-color: rgba(0,0,0,.9);
+	}
+	62% {
+		width: 58px;
+		-webkit-border-radius:58px/5px;
+		margin-left: -29px;
+		-webkit-animation-timing-function: ease-in;
+    background-color: rgba(0,0,0,0.7);
+	}
+	78% {
+		width: 100px;
+		-webkit-border-radius:100px/5px;
+		margin-left: -50px;
+		-webkit-animation-timing-function: ease-all;
+    background-color: rgba(0,0,0,0.9);
+	}
+	85% {
+		width: 58px;
+		-webkit-border-radius:58px/5px;
+		margin-left: -29px;
+		-webkit-animation-timing-function: ease-all;
+    background-color: rgba(0,0,0,0.85);
+	}
+  90% {
+		width: 100px;
+		-webkit-border-radius:100px/5px;
+		margin-left: -50px;
+		-webkit-animation-timing-function: ease-out;
+    background-color: rgba(0,0,0,0.85);
+	}
+	100% {
+		width: 10px;
+		-webkit-border-radius:10px/5px;
+		margin-left: -5px;
+		-webkit-animation-timing-function: ease-in;
+    background-color: rgba(0,0,0,0.9);
+	}
 }

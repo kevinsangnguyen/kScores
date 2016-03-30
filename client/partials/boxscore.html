@@ -1,6 +1,6 @@
 <div class="row">
-  <div ng-if="!boxscore" style="text-align:center" class="warning">
-    <h1>Please choose a game!</h1>
+  <div ng-if="!boxscore" class="warning">
+    <h1><i>Please choose a <a href="#/" ng-click="refresh()">game</a>!</i></h1>
   </div>
   <div ng-if="boxscore" class="boxscore">
     <div class="col-md-4 col-lg-4">
