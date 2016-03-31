@@ -1,5 +1,5 @@
 # kScores
-*A real-time NBA scoreboard, statistics, standings and box scores.*
+*A real-time presentation of NBA scoreboards, statistics, standings and box scores.*
 
 [Live](http://kscores.kevinsangnguyen.com)
 
