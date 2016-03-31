@@ -10,7 +10,7 @@ Technologies: JavaScript, AngularJS, Express.js, Node.js, request, Twitter Boots
 Using this [documentation](https://github.com/seemethere/nba_py/wiki/stats.nba.com-Endpoint-Documentation) on endpoint data from stats.nba.com,
 I was able to create a scraper to gather games and stats and manipulate the data to display cleanly.
 
-*As of now, there is no boxscore data of player statistics during a game until it is over.*
+**As of now, there is no boxscore data of player statistics during a game until it is over.**
 
 Functions:
 ---
