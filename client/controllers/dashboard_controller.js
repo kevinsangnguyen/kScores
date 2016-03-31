@@ -76,10 +76,12 @@ $scope.players = [];
 
 StatFactory.get_leaders(function(players){
 		$scope.players=players;
+		$scope.current_stat = 'PTS';
 },'PTS');
 
 $scope.get_leaders = function(category){
 	$scope.players = null;
+	$scope.current_stat = category;
 	StatFactory.get_leaders(function(players){
 			$scope.players=players;
 	},category);

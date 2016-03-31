@@ -58,7 +58,6 @@ module.exports = function(app) {
           for(var i=0; i < 50; i++){
             players.push(info.resultSet.rowSet[i])
           }
-          console.log(info.resultSet.headers);
           res.json(players);
         }
       }

@@ -43,25 +43,25 @@
           <th>Rank</th>
               <th>Player</th>
               <th class="cf">GP</th>
-              <th class="cf" ng-click="get_leaders('MIN')">MIN</th>
-              <th class="cf" ng-click="get_leaders('FGM')">FGM</th>
-              <th class="cf" ng-click="get_leaders('FGA')">FGA</th>
+              <th class="cf" ng-click="get_leaders('MIN')">MIN<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='MIN'"></span></th>
+              <th class="cf" ng-click="get_leaders('FGM')">FGM<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='FGM'"></span></th>
+              <th class="cf" ng-click="get_leaders('FGA')">FGA<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='FGA'"></span></th>
               <th class="cf">FG%</th>
-              <th class="cf" ng-click="get_leaders('FG3M')">3PM</th>
-              <th class="cf" ng-click="get_leaders('FG3A')">3PA</th>
+              <th class="cf" ng-click="get_leaders('FG3M')">3PM<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='FG3M'"></span></th>
+              <th class="cf" ng-click="get_leaders('FG3A')">3PA<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='FG3A'"></span></th>
               <th class="cf">3P%</th>
-              <th class="cf" ng-click="get_leaders('FTM')">FTM</th>
-              <th class="cf" ng-click="get_leaders('FTA')">FTA</th>
+              <th class="cf" ng-click="get_leaders('FTM')">FTM<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='FTM'"></span></th>
+              <th class="cf" ng-click="get_leaders('FTA')">FTA<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='FTA'"></span></th>
               <th class="cf">FT%</th>
-              <th class="cf" ng-click="get_leaders('OREB')">OREB</th>
-              <th class="cf" ng-click="get_leaders('DREB')">DREB</th>
-              <th class="cf" ng-click="get_leaders('REB')">REB</th>
-              <th class="cf" ng-click="get_leaders('AST')">AST</th>
-              <th class="cf" ng-click="get_leaders('STL')">STL</th>
-              <th class="cf" ng-click="get_leaders('BLK')">BLK</th>
-              <th class="cf" ng-click="get_leaders('TOV')">TOV</th>
-              <th class="cf" ng-click="get_leaders('PTS')">PTS</th>
-              <th class="cf" ng-click="get_leaders('EFF')">EFF</th>
+              <th class="cf" ng-click="get_leaders('OREB')">OREB<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='OREB'"></span></th>
+              <th class="cf" ng-click="get_leaders('DREB')">DREB<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='DREB'"></span></th>
+              <th class="cf" ng-click="get_leaders('REB')">REB<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='REB'"></span></th>
+              <th class="cf" ng-click="get_leaders('AST')">AST<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='AST'"></span></th>
+              <th class="cf" ng-click="get_leaders('STL')">STL<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='STL'"></span></th>
+              <th class="cf" ng-click="get_leaders('BLK')">BLK<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='BLK'"></span></th>
+              <th class="cf" ng-click="get_leaders('TOV')">TOV<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='TOV'"></span></th>
+              <th class="cf" ng-click="get_leaders('PTS')">PTS<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='PTS'"></span></th>
+              <th class="cf" ng-click="get_leaders('EFF')">EFF<span class="glyphicon glyphicon-chevron-down" ng-if="current_stat=='EFF'"></span></th>
         </tr>
       </thead>
       <tbody>
