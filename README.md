@@ -1,6 +1,8 @@
 # kScores
 *A real-time NBA scoreboard, statistics, standings and box scores.*
 
+[Live](http://kscores.kevinsangnguyen.com)
+
 Technologies: JavaScript, AngularJS, Express.js, Node.js, request, Twitter Bootstrap
 
 ---
