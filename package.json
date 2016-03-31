@@ -1,15 +1,32 @@
 {
-  "name": "Project",
+  "name": "kscores",
   "dependencies": {
     "angular-ui-router": "^0.2.18",
     "body-parser": "^1.14.2",
     "ejs": "1.0.0",
-    "express": "~4.10.0",
+    "express": "^4.10.8",
     "express-session": "^1.13.0",
     "mongoose": "^4.4.2",
     "mongoose-validator": "^1.2.4",
     "request": "^2.69.0",
     "socket.io": "^1.4.5",
     "ui-navbar": "^0.4.3"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinsangnguyen/MEAN_TEMPLATE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinsangnguyen/MEAN_TEMPLATE/issues"
+  },
+  "homepage": "https://github.com/kevinsangnguyen/MEAN_TEMPLATE#readme",
+  "description": ""
 }

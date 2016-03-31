@@ -63,7 +63,7 @@ button .navbar-toggle {
   box-shadow: 0 10px 6px -6px #777;
   box-sizing:border-box;
   overflow-y: auto;
-  opacity:.95;
+  opacity:.93;
 }
 
 .block:hover{
