@@ -17,7 +17,7 @@ Functions:
 - Displays games of the current date along with boxscores, time periods, and other details of opponents.
 - Displays current NBA standings and records of Eastern and Western conferences with playoff bound teams.
 - Displays league leaders in statistics per game, which is also sortable.
-> API Calls to my scraper
+- API Calls to my scraper
 
 > Dashboard of games
 > - kscores.kevinsangnguyen.com/dashboard
