@@ -35,27 +35,30 @@
 	</div>
 </div>
 <div class="col-md-12" style="margin-top:20px;"></div>
+<div class="center_text big" ng-if="games.length === 0">
+	<h1>No games are being played today!</h1>
+</div>
 <div class="game_box col-lg-offset-0 col-md-offset-0 col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="game in games" ng-click="show_boxscore(game)">
 	<div class="row logos">
 		<div>
 			<figure>
-				<img src="./images/logos/{{teams[game[0].rowSet[0][7]].short}}.gif">
+				<img src="./images/logos/{{teams[game.teams[0][1]].short}}.gif"> <!-- team pic -->
 			</figure>
-			<span>{{game[1].rowSet[1][6]}}</span>
+			<span>{{game.teams[0][3]}}</span> <!-- highlighted team abrev -->
 		</div>
-		<span class="big">@</span>
+		<span class="big"> </span>
 		<div>
 			<figure>
-				<img class="logos" src="./images/logos/{{teams[game[0].rowSet[0][6]].short}}.gif">
+				<img class="logos" src="./images/logos/{{teams[game.teams[1][1]].short}}.gif">
 			</figure>
-			<span>{{game[1].rowSet[0][6]}}</span>
+			<span>{{game.teams[1][3]}}</span>
 	</div>
 </div>
-	<p ng-if="game[1].rowSet[1][21]">
-		<strong>{{game[0].rowSet[0][4]}} {{game[0].rowSet[0][10]}}</strong>
+	<p ng-if="!game.teams[0][23]">
+		<strong>0 - 0</strong>
 	</p>
-	<p ng-if="game[1].rowSet[1][21]">
-		{{game[1].rowSet[1][21]}} - {{game[1].rowSet[0][21]}}
+	<p ng-if="game.teams[0][23]">
+		{{game.teams[0][23]}} - {{game.teams[1][23]}} <!-- score -->
 	</p>
 	<p ng-if="!game[1].rowSet[1][21]">&nbsp
 	</p>

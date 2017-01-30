@@ -65,7 +65,7 @@ $scope.test = function(){
 $scope.show_boxscore = function(game){
 	$scope.boxscore = game;
 	$state.go('boxscore')
-	$scope.boxscore_team = $scope.boxscore[1].rowSet[1][3];
+	$scope.boxscore_team = $scope.boxscore.teams[0][1];
 }
 
 $scope.change_team = function(teamID){

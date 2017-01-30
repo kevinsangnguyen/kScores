@@ -27,7 +27,7 @@ module.exports = function(app) {
     });
     //
     app.get('/boxscore/:gameID', function(req,res){
-      var url = 'http://stats.nba.com/stats/boxscore?EndPeriod=10&EndRange=28800&GameID=' + req.params.gameID + '&RangeType=0&StartPeriod=1&StartRange=0'
+      var url = 'http://stats.nba.com/stats/boxscoretraditionalv2?EndPeriod=10&EndRange=28800&GameID=' + req.params.gameID + '&RangeType=0&StartPeriod=1&StartRange=0'
       var options = {
         url: url,
         headers: {

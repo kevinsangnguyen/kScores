@@ -10,7 +10,13 @@ board.factory('StatFactory', function($http) {
 				east = output.resultSets[4].rowSet;
 				for (i in output.resultSets[0].rowSet){
 					$http.get('/boxscore/'+output.resultSets[0].rowSet[i][2]).success(function(result){
-							games.push(result.resultSets);
+							if(result){
+								console.log(result.resultSets);
+								let game = {};
+								game.players = result.resultSets[0].rowSet;
+								game.teams = result.resultSets[1].rowSet;
+								games.push(game);
+							}
 					});
 				}
 				callback(games,west,east);
